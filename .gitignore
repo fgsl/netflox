@@ -1,0 +1,7 @@
+mezzio-skeleton-3.8.x/
+reprodutor/vendor
+conta/vendor
+catalogo/vendor
+homepage/vendor
+*.zip
+
