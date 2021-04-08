@@ -32,10 +32,9 @@ class ConfigProvider
     {
         return [
             'invokables' => [
-                Handler\PingHandler::class => Handler\PingHandler::class,
             ],
             'factories'  => [
-                Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
+                Handler\FilmesHandler::class => Handler\FilmesHandlerFactory::class,
             ],
         ];
     }
@@ -49,7 +48,7 @@ class ConfigProvider
             'paths' => [
                 'app'    => [__DIR__ . '/../templates/app'],
                 'error'  => [__DIR__ . '/../templates/error'],
-                'layout' => [__DIR__ . '/../templates/layout'],
+                'layout'  => [__DIR__ . '/../templates/layout'],
             ],
         ];
     }

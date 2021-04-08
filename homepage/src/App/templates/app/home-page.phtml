@@ -1,13 +1,14 @@
-    <h1>Netflox</h1>
-    <div class="column">
+<div class="row">
+    <div class="col-md-4">    
       <h2>Catálogo de Filmes</h2>
-      <?=file_get_contents('http://localhost:8009/filmes.txt',false);?>
+      <?=file_get_contents('http://localhost:8009/filmes',false);?>
     </div>
-    <div class="column">
+    <div class="col-md-4">    
       <h2>Player de Vídeo</h2>
       <?=file_get_contents('http://localhost:8008/video',false);?>
     </div>
-    <div class="column">
+    <div class="col-md-4">    
       <h2>Conta</h2>
-      <?=file_get_contents('http://localhost:8010/usuario.txt',false);?>
+      <?=file_get_contents('http://localhost:8010/conta',false);?>
     </div>
+</div>    

@@ -1,5 +1,0 @@
-<p>Conta</p>
-<p>Privacidade e Segurança</p>
-<p>Pagamentos e Recursos Financeiros</p>
-<p>Preferências</p>
-<p>Sair</p>
