@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-md-4">    
       <h2>Catálogo de Filmes</h2>
-      <?=file_get_contents('http://localhost:8009/filmes',false);?>
+      <?=$this->filmes;?>
     </div>
     <div class="col-md-4">    
       <h2>Player de Vídeo</h2>
-      <?=file_get_contents('http://localhost:8008/video',false);?>
+      <?=$this->video;?>
     </div>
     <div class="col-md-4">    
       <h2>Conta</h2>
-      <?=file_get_contents('http://localhost:8010/conta',false);?>
+      <?=$this->conta;?>
     </div>
 </div>    

@@ -38,7 +38,27 @@ class HomePageHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $data = [];
+        try {
+            $filmes = file_get_contents('http://localhost:8009/filmes',false);
+        } catch (\Exception $e) {
+            $filmes = 'Não conseguiu acessar o serviço de catálogo de filmes';
+        }
+        try {    
+            $video = file_get_contents('http://localhost:8008/video',false);
+        } catch (\Exception $e) {    
+            $video = 'Não conseguiu acessar o serviço de reprodução de vídeos';
+        }
+        try { 
+            $conta = file_get_contents('http://localhost:8010/conta',false);
+       } catch (\Exception $e) {
+            $conta = 'Não conseguiu acessar o serviço de conta do usuário'; 
+       }
+    
+        $data = [
+            'filmes' => $filmes,
+            'video' => $video,
+            'conta' => $conta
+        ];
         return new HtmlResponse($this->template->render('app::home-page', $data));
     }
 }
