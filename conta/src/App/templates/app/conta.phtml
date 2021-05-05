@@ -1,5 +1,12 @@
+<?php
+use Laminas\View\View;
+/**
+ * @var $this View
+ */
+$this->headTitle('Home');
+?>
 <p>Conta</p>
-<p>Privacidade e Segurança</p>
-<p>Pagamentos e Recursos Financeiros</p>
-<p>Preferências</p>
-<p>Sair</p>
+<p><a href="<?=$this->privacidadeLink?>">Privacidade e Segurança</a></p>
+<p><a href="<?=$this->pagamentoLink?>">Pagamentos e Recursos Financeiros</a></a></p>
+<p><a href="<?=$this->preferenciasLink?>">Preferências</a></p>
+<p><a href="<?=$this->sairLink?>">Sair</a></p>

@@ -5,3 +5,7 @@ catalogo/vendor
 homepage/vendor
 *.zip
 
+/.metadata/
+conta/.buildpath
+conta/.project
+conta/.settings/

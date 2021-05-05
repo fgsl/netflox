@@ -37,5 +37,6 @@ use Psr\Container\ContainerInterface;
  * );
  */
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    $app->get('/conta', App\Handler\ContaHandler::class, 'conta');
+  		$app->get('/conta/:action', App\Handler\ContaHandler::class, 'conta');
+  		$app->get('/conta', App\Handler\ContaHandler::class, 'homepage');
 };
