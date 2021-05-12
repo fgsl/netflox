@@ -1,14 +1,28 @@
+<?php
+/** @var Laminas\View\Renderer\PhpRenderer $this **/
+$filmes = $this->services['filmes'];
+$video = $this->services['video'];
+$conta = $this->services['conta'];
+$script = <<<SCRIPT
+var filmes = '$filmes';
+var video = '$video';
+var conta = '$conta';
+SCRIPT;
+
+$this->inlineScript()->appendScript($script);
+$this->inlineScript()->appendScript(file_get_contents(__DIR__ . '/home-page.js'));
+?>
 <div class="row">
     <div class="col-md-4">    
       <h2>Catálogo de Filmes</h2>
-      <?=$this->filmes;?>
+      <div id="filmes"></div>
     </div>
     <div class="col-md-4">    
       <h2>Player de Vídeo</h2>
-      <?=$this->video;?>
+      <div id="video"></div>
     </div>
     <div class="col-md-4">    
       <h2>Conta</h2>
-      <?=$this->conta;?>
+      <div id="conta"></div>
     </div>
 </div>    

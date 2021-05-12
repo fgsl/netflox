@@ -15,7 +15,7 @@ $this->inlineScript()
     <link rel="shortcut icon" href="https://getlaminas.org/images/favicon/favicon.ico" />
     <?=$this->headTitle('mezzio')->setSeparator(' - ')->setAutoEscape(false)?>
     <?=$this->headMeta()?>
-    <?=$this->headLink()?>
+    <?=$this->headLink()?>    
     <style>
         body { padding-top: 70px; }
         .app { min-height: 100vh; }
@@ -34,8 +34,9 @@ $this->inlineScript()
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- Brand -->
-                    <span class="navbar-brand">NETFLOX</a>&nbsp;
+                    <span class="navbar-brand">NETFLOX&nbsp;
                     <a class="navbar-brand" href="<?=$this->url('home')?>">Home</a>
+                    </span>
                 </div>
                 <!-- Links -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -61,7 +62,7 @@ $this->inlineScript()
         <div class="container">
             <hr />
             <p>
-                &copy; <?=date('Y')?> <a href="https://getlaminas.org/">ISULPAR
+                &copy; <?=date('Y')?> <a href="https://getlaminas.org/">ISULPAR</a>
             </p>
         </div>
     </footer>
