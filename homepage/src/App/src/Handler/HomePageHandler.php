@@ -17,39 +17,39 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class HomePageHandler implements RequestHandlerInterface
 {
-    /** @var string */
-    private $containerName;
-
     /** @var Router\RouterInterface */
     private $router;
 
     /** @var null|TemplateRendererInterface */
     private $template;
+    
+    /** @var array **/
+    private $services = [];
 
     public function __construct(
-        string $containerName,
         Router\RouterInterface $router,
-        ?TemplateRendererInterface $template = null
+        TemplateRendererInterface $template = null,
+        array $services
     ) {
-        $this->containerName = $containerName;
         $this->router        = $router;
         $this->template      = $template;
+        $this->services      = $services;
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {
-            $filmes = file_get_contents('http://localhost:8009/filmes',false);
+            $filmes = file_get_contents($this->services['filmes'],false);
         } catch (\Exception $e) {
             $filmes = 'Não conseguiu acessar o serviço de catálogo de filmes';
         }
         try {    
-            $video = file_get_contents('http://localhost:8008/video',false);
+            $video = file_get_contents($this->services['video'],false);
         } catch (\Exception $e) {    
             $video = 'Não conseguiu acessar o serviço de reprodução de vídeos';
         }
         try { 
-            $conta = file_get_contents('http://localhost:8010/conta',false);
+            $conta = file_get_contents($this->services['conta'],false);
        } catch (\Exception $e) {
             $conta = 'Não conseguiu acessar o serviço de conta do usuário'; 
        }

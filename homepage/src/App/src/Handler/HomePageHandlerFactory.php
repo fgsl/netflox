@@ -19,7 +19,8 @@ class HomePageHandlerFactory
         $template = $container->has(TemplateRendererInterface::class)
             ? $container->get(TemplateRendererInterface::class)
             : null;
+        $services = $container->get('config')['services'];    
 
-        return new HomePageHandler(get_class($container), $router, $template);
+        return new HomePageHandler($router, $template, $services);
     }
 }
