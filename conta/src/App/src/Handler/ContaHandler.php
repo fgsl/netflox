@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Handler;
 
-use Laminas\Diactoros\Response\HtmlResponse;
 use Mezzio\Helper\UrlHelper;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Fgsl\Microserviceframework\Response\JsonResponseCors;
 
 class ContaHandler implements RequestHandlerInterface
 {
@@ -37,13 +37,13 @@ $helper
         $contaLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('homepage');
 
         if (empty($action)){
-            return new HtmlResponse($this->template->render('app::conta', [
+            return new JsonResponseCors($this->template->render('app::conta', [
             'privacidadeLink'   => $privacidadeLink,
             'pagamentoLink'     => $pagamentoLink,
             'preferenciasLink'  => $preferenciasLink,
             'sairLink'          => $sairLink,
             'layout'            => false]));        
         }
-        return new HtmlResponse($this->template->render('app::' . $action, ['contaLink' => $contaLink,'layout' => false]));
+        return new JsonResponseCors($this->template->render('app::' . $action, ['contaLink' => $contaLink,'layout' => false]));
     }
 }

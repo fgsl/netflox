@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace App\Handler;
 
-use Laminas\Diactoros\Response\HtmlResponse;
 use Laminas\Diactoros\Response\JsonResponse;
-use Mezzio\LaminasView\LaminasViewRenderer;
-use Mezzio\Plates\PlatesRenderer;
-use Mezzio\Router;
 use Mezzio\Template\TemplateRendererInterface;
-use Mezzio\Twig\TwigRenderer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Fgsl\Microserviceframework\Response\JsonResponseCors;
 
 class FilmesHandler implements RequestHandlerInterface
 {
@@ -28,6 +24,6 @@ class FilmesHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request):ResponseInterface
     {
        $data = [];
-       return new HtmlResponse($this->template->render('app::filmes', ['layout' => false]));
+       return new JsonResponseCors($this->template->render('app::filmes', ['layout' => false]));
     }
 }
