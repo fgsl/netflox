@@ -37,12 +37,18 @@ $helper
         $contaLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('homepage');
 
         if (empty($action)){
-            return new JsonResponseCors($this->template->render('app::conta', [
-            'privacidadeLink'   => $privacidadeLink,
-            'pagamentoLink'     => $pagamentoLink,
-            'preferenciasLink'  => $preferenciasLink,
-            'sairLink'          => $sairLink,
-            'layout'            => false]));        
+            $html = $this->template->render('app::conta', ['layout'=> false]);
+            $response = [
+                'html' => $html,
+                'links' => [
+                    'privacidadeLink'   => $privacidadeLink,
+                    'pagamentoLink'     => $pagamentoLink,
+                    'preferenciasLink'  => $preferenciasLink,
+                    'sairLink'          => $sairLink,
+                ] 
+            ];
+            
+            return new JsonResponseCors($response);        
         }
         return new JsonResponseCors($this->template->render('app::' . $action, ['contaLink' => $contaLink,'layout' => false]));
     }
