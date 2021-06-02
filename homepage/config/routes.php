@@ -37,6 +37,8 @@ use Psr\Container\ContainerInterface;
  * );
  */
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    $app->get('/', App\Handler\HomePageHandler::class, 'home');
+    $app->get('/', App\Handler\LoginHandler::class, 'home');
+    $app->post('/login', App\Handler\LoginHandler::class, 'login');
+    $app->get('/menu', App\Handler\HomePageHandler::class, 'menu');
     $app->get('/about',App\Handler\AboutHandler::class, 'about');  
 };
