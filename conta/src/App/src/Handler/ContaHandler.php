@@ -33,7 +33,6 @@ $helper
         $privacidadeLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('conta',['action' => 'privacidade']);
         $pagamentoLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('conta',['action' => 'pagamentos']);
         $preferenciasLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('conta',['action' => 'preferencias']);
-        $sairLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('conta',['action' => 'sair']);
         $contaLink = 'http://'.$_SERVER['HTTP_HOST'].$this->helper->generate('homepage');
 
         if (empty($action)){
@@ -43,8 +42,7 @@ $helper
                 'links' => [
                     'privacidadeLink'   => $privacidadeLink,
                     'pagamentoLink'     => $pagamentoLink,
-                    'preferenciasLink'  => $preferenciasLink,
-                    'sairLink'          => $sairLink,
+                    'preferenciasLink'  => $preferenciasLink
                 ] 
             ];
             
