@@ -10,6 +10,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 use function get_class;
+use Mezzio\Helper\UrlHelper;
 
 class HomePageHandlerFactory
 {
@@ -20,7 +21,7 @@ class HomePageHandlerFactory
             ? $container->get(TemplateRendererInterface::class)
             : null;
         $services = $container->get('config')['services'];
-        
-        return new HomePageHandler($router, $template, $services);
+        $urlHelper = $container->get(UrlHelper::class);
+        return new HomePageHandler($router, $template, $services, $urlHelper);
     }
 }

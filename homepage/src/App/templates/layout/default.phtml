@@ -1,4 +1,11 @@
 <?php
+use Laminas\View\Renderer\PhpRenderer;
+
+/**
+ * @var $this PhpRenderer
+ */
+use Laminas\Session\Container;
+
 $this->headLink()
     ->prependStylesheet('https://use.fontawesome.com/releases/v5.13.0/css/all.css')
     ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
@@ -46,6 +53,18 @@ $this->inlineScript()
                                 Sobre
                             </a>
                         </li>
+<?php 
+$session = new Container();
+if (isset($session->identity)):
+?>
+                        <li class="nav-item">
+                            <a href="<?=$this->url('logout')?>" class="nav-link">
+                                Sair
+                            </a>
+                        </li>
+<?php
+endif;
+?>
                     </ul>
                 </div>
             </div>
