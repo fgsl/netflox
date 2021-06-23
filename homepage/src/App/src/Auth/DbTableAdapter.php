@@ -58,7 +58,7 @@ class DbTableAdapter implements AdapterInterface
     
     public function authenticate()
     {
-        $resultSet = $this->adapter->query('SELECT * FROM `usuarios` WHERE `nome` = ? and `senha` = ?', 
+        $resultSet = $this->adapter->query("SELECT * FROM `{$this->tableName}` WHERE `{$this->identityColumn}` = ? and `{$this->credentialColumn}` = ?", 
             [$this->identity,$this->credential]);
         $result = new Result(Result::FAILURE, $this->identity);
         if ($resultSet->count() > 0){
